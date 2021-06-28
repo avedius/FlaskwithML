@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	{{message}}	
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+<!-- <div class="container-sm" >
+	<div class="shadow-lg p-3 mb-5 bg-body rounded">
+	<br/>
+	<br/>
+	<img src="{{ url_for('static',filename='images/nit1.jpg') }}" class="img-fluid" alt="Responsive image" width = "100%"><br/><br/>
+</div>
+</div> -->
+<div class="container-sm">
+	{% if subject %}
+		<h1>Suggestion submitted.</h1>
+		<br/><br/><br/>
+		{% for subject in subjects %}
+			{{subject.id}}.{{subject.subject}}
+			{{subject.comment}}
+		{% endfor %}
+
+	{% else %}
+<br/>
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.subject.label (class="form-label") }}
+	<br/>
+	{{ form.subject(class="form-control") }}
+	 <br/>
+	 {{ form.comment.label (class="form-label") }}
+	 <br/>
+	{{ form.comment(class="form-control", rows="3") }}
+	<br/>
+	{{ form.submit(class="btn btn-secondary") }}
+	<br/>
+
+
+</form>
+</div>
+
+</div>
+<table class="table table-hover table-bordered table-striped">
+<div class="shadow-sm p-3 mb-5 bg-body rounded">
+	{% for i in subjects %}
+		{{i.id}}.{{i.subject}}
+		{{i.comment}}
+	{% endfor %}<br/>
+</div>
+</table>
+<br/><br/>
+	
+
+
+{% endif %}
+
+{% endblock %}
+

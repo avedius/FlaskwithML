@@ -1,0 +1,16 @@
+Flask
+gunicorn==20.0.4
+pandas==0.25.2
+scikit-learn==0.23.2
+numpy==1.17.3
+pickle4==0.0.1
+sklearn==0.0
+flask-wtf== 0.15.1 
+werkzeug==0.16.1
+flask-sqlalchemy
+Flask-Migrate
+mysql-connector
+mysql-connector-python
+mysql-connector-python-rf
+pymysql
+cryptography
